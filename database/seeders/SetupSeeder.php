@@ -14,6 +14,6 @@ class SetupSeeder extends Seeder
      */
     public function run()
     {
-        //
+
     }
 }

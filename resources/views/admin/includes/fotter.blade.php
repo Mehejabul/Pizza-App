@@ -22,22 +22,20 @@
     <!-- ===============================================-->
     <!--    JavaScripts-->
     <!-- ===============================================-->
-    <script src="{{asset('contents/admin')}}/vendors//popper/popper.min.js"></script>
-    <script src="{{asset('contents/admin')}}/vendors//bootstrap/bootstrap.min.js"></script>
-    <script src="{{asset('contents/admin')}}/vendors//anchorjs/anchor.min.js"></script>
-    <script src="{{asset('contents/admin')}}/vendors//is/is.min.js"></script>
-    <script src="{{asset('contents/admin')}}/vendors//fontawesome/all.min.js"></script>
-    <script src="{{asset('contents/admin')}}/vendors//lodash/lodash.min.js"></script>
-    <script src="{{asset('contents/admin')}}/vendors//list.js/list.min.js"></script>
-    <script src="{{asset('contents/admin')}}/vendors//feather-icons/feather.min.js"></script>
-    <script src="{{asset('contents/admin')}}/vendors//dayjs/dayjs.min.js"></script>
+    <script src="{{asset('contents/admin')}}/vendors/popper/popper.min.js"></script>
+    <script src="{{asset('contents/admin')}}/vendors/bootstrap/bootstrap.min.js"></script>
+    <script src="{{asset('contents/admin')}}/vendors/anchorjs/anchor.min.js"></script>
+    <script src="{{asset('contents/admin')}}/vendors/is/is.min.js"></script>
+    <script src="{{asset('contents/admin')}}/vendors/fontawesome/all.min.js"></script>
+    <script src="{{asset('contents/admin')}}/vendors/lodash/lodash.min.js"></script>
+    <script src="{{asset('contents/admin')}}/vendors/list.js/list.min.js"></script>
+    <script src="{{asset('contents/admin')}}/vendors/feather-icons/feather.min.js"></script>
+    <script src="{{asset('contents/admin')}}/vendors/dayjs/dayjs.min.js"></script>
     <script src="{{asset('contents/admin')}}/assets/js/phoenix.js"></script>
-    <script src="{{asset('contents/admin')}}/vendors//echarts/echarts.min.js"></script>
-    <script src="{{asset('contents/admin')}}/vendors//chart/chart.min.js"></script>
-    <script src="{{asset('contents/admin')}}/vendors//list.js/list.min.js"></script>
-    <script src="{{asset('contents/admin')}}/vendors//leaflet/leaflet.js"></script>
-    <script src="{{asset('contents/admin')}}/vendors//leaflet.markercluster/leaflet.markercluster.js"></script>
-    <script src="{{asset('contents/admin')}}/vendors//leaflet.tilelayer.colorfilter/leaflet-tilelayer-colorfilter.min.js"></script>
+    <script src="{{asset('contents/admin')}}/vendors/echarts/echarts.min.js"></script>
+    <script src="{{asset('contents/admin')}}/vendors/chart/chart.min.js"></script>
+    <script src="{{asset('contents/admin')}}/vendors/leaflet/leaflet.js"></script>
+    <script src="{{asset('contents/admin')}}/vendors/list.js/list.min.js"></script>
     <script src="{{asset('contents/admin')}}/assets/js/ecommerce-dashboard.js"></script>
   </body>
 </html>
