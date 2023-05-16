@@ -22,6 +22,12 @@
     <!-- ===============================================-->
     <!--    JavaScripts-->
     <!-- ===============================================-->
+
+
+
+
+
+
     <script src="{{asset('contents/admin')}}/vendors/popper/popper.min.js"></script>
     <script src="{{asset('contents/admin')}}/vendors/bootstrap/bootstrap.min.js"></script>
     <script src="{{asset('contents/admin')}}/vendors/anchorjs/anchor.min.js"></script>
@@ -37,5 +43,50 @@
     <script src="{{asset('contents/admin')}}/vendors/leaflet/leaflet.js"></script>
     <script src="{{asset('contents/admin')}}/vendors/list.js/list.min.js"></script>
     <script src="{{asset('contents/admin')}}/assets/js/ecommerce-dashboard.js"></script>
+    <script src="{{asset('contents/admin')}}/assets/js/backend_custom.js"></script>
+
+            //tostar notification
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+ <script>
+    @if (Session::has('message'))
+        var type = "{{ Session::get('alert-type', 'info') }}"
+        switch (type) {
+            case 'info':
+                toastr.options = {
+                    "closeButton": true,
+                    "progressBar": true,
+                    "positionClass": "toast-top-right",
+                };
+                toastr.info("{{ Session::get('message') }}")
+                break;
+            case 'success':
+                toastr.options = {
+                    "closeButton": true,
+                    "progressBar": true,
+                    "positionClass": "toast-top-right",
+                };
+                toastr.success("{{ Session::get('message') }}")
+                break;
+            case 'warning':
+                toastr.options = {
+                    "closeButton": true,
+                    "progressBar": true,
+                    "positionClass": "toast-top-right",
+                };
+                toastr.warning("{{ Session::get('message') }}")
+                break;
+            case 'error':
+                toastr.options = {
+                    "closeButton": true,
+                    "progressBar": true,
+                    "positionClass": "toast-top-right",
+                };
+                toastr.error("{{ Session::get('message') }}")
+                break;
+        }
+    @endif
+</script>
+
+@stack('custom-script')
   </body>
 </html>

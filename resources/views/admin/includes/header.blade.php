@@ -32,4 +32,10 @@
     <link href="{{asset('contents/admin')}}/vendors//leaflet/leaflet.css" rel="stylesheet">
     <link href="{{asset('contents/admin')}}/vendors//leaflet.markercluster/MarkerCluster.css" rel="stylesheet">
     <link href="{{asset('contents/admin')}}/vendors//leaflet.markercluster/MarkerCluster.Default.css" rel="stylesheet">
+            {{-- Toster Notification Start --}}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
+
   </head>

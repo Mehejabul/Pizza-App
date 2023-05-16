@@ -9,16 +9,16 @@
                         <div class="card-header">
                             <div class="d-flex mb-2">
                                 <h3 class="me-auto">Create User</h3>
-                                <button class="btn btn-sm btn-primary me-2">
+                                <button class="btn btn-sm btn-primary me-2 deviceSubmit">
                                     <span class="text-light" data-feather="save"></span>
                                 </button>
-                                <a title="Back" href="#" class="btn btn-sm btn-secondary">
+                                <a title="Back" href="{{ route('user.index') }}" class="btn btn-sm btn-secondary">
                                     <span data-feather="rotate-ccw"></span>
                                 </a>
                             </div>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('user.store') }}" method="post" enctype="multipart/form-data">
+                            <form action="{{ route('user.store') }}" method="post" enctype="multipart/form-data" id="deviceForm">
                                 <ul class="nav nav-underline" id="myTab" role="tablist">
                                     <li class="nav-item">
                                         <a class="nav-link active" id="home-tab" data-bs-toggle="tab" href="#tab-home"  role="tab" aria-controls="tab-home" aria-selected="true">General</a>
@@ -68,7 +68,7 @@
                                         <div class="row mb-4 border py-2">
                                             <label for="user-phone-input" class="col-sm-3 col-form-label"> Confirm Password</label>
                                             <div class="col-sm-9">
-                                                <input name="password_confrimation" type="password"  class="form-control @error('password') is-invalid @enderror" placeholder="Enter Your Confirm Password">
+                                                <input name="password_confirmation" type="password"  class="form-control @error('password') is-invalid @enderror" placeholder="Enter Your Confirm Password">
                                                 @error('password')
                                                 <span class="text-danger">{{ $message }}</span>
                                                 @enderror
@@ -92,21 +92,27 @@
                                     <div class="tab-pane fade" id="tab-profile" role="tabpanel"
                                         aria-labelledby="profile-tab">
                                         <div class="row mb-4 border py-2">
-                                            <label for="user-name-input" class="col-sm-2 col-form-label"> post office </label>
+                                            <label for="user-name-input" class="col-sm-2 col-form-label"> city </label>
                                             <div class="col-sm-9">
-                                                <input name="post_office" type="text" class="form-control @error('post_office') is-invalid @enderror" placeholder="Enter Your post_office">
-                                                @error('post_office')
-                                                <span class="text-danger">{{ $message }}</span>
-                                                @enderror
+                                                <input name="city" type="text" class="form-control" placeholder="Enter Your city">
                                             </div>
                                         </div>
                                         <div class="row mb-4 border py-2">
-                                            <label for="user-phone-input" class="col-sm-2 col-form-label"> Address</label>
+                                            <label for="user-phone-input" class="col-sm-2 col-form-label"> country </label>
                                             <div class="col-sm-9">
-                                                <input name="address" type="text"  class="form-control @error('address') is-invalid @enderror" placeholder="Enter Your address">
-                                                @error('address')
-                                                <span class="text-danger">{{ $message }}</span>
-                                                @enderror
+                                                <input name="country" type="text"  class="form-control" placeholder="Enter Your country">
+                                            </div>
+                                        </div>
+                                        <div class="row mb-4 border py-2">
+                                            <label for="user-phone-input" class="col-sm-2 col-form-label"> post_code </label>
+                                            <div class="col-sm-9">
+                                                <input name="post_code" type="text"  class="form-control" placeholder="Enter Your postcode">
+                                            </div>
+                                        </div>
+                                        <div class="row mb-4 border py-2">
+                                            <label for="user-phone-input" class="col-sm-2 col-form-label"> Address </label>
+                                            <div class="col-sm-9">
+                                                <input name="address" type="text"  class="form-control" placeholder="Enter Your Address">
                                             </div>
                                         </div>
                                     </div>
@@ -117,14 +123,13 @@
             </div>
         </div>
     </div>
-
- <script type="text/javascript">
-    $('#input_image').change(function () {
-        let reader = new FileReader();
-        reader.onload = (e) => {
-            $('#input_image_preview').attr('src', e.target.result);
-        }
-        reader.readAsDataURL(this.files[0]);
-    });
-</script>
     @endsection
+   @push('custom-script')
+    <script>
+        $(document).ready(function () {
+            $('.deviceSubmit').on('click',function () {
+                $('#deviceForm').submit();
+            });
+        });
+    </script>
+@endpush
