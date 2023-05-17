@@ -18,7 +18,7 @@ Route::group(['prefix' => 'dashboard','middleware' => ['auth']], function(){
          Route::post('/', 'store')->name('user.store');
          Route::get('/edit/{slug}', 'edit')->name('user.edit');
          Route::put('/{slug}', 'update')->name('user.update');
-         Route::delete('/delete/{slug}', 'update')->name('user.delete');
+         Route::get('/delete/{slug}', 'destroy')->name('user.delete');
          //user status
          Route::get('/status/{slug}','status')->name('user.status');
     });

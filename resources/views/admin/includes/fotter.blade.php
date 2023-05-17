@@ -86,7 +86,34 @@
         }
     @endif
 </script>
-
 @stack('custom-script')
+
+//delete
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.5/sweetalert2.all.min.js"></script>
+<script>
+    $(document).on("click", "#delete", function(e) {
+        e.preventDefault();
+        var link = $(this).attr("href");
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: !0,
+            confirmButtonText: "Yes, delete it!",
+            cancelButtonText: "No, cancel!",
+            confirmButtonClass: "btn btn-success mt-2",
+            cancelButtonClass: "btn btn-danger ms-2 mt-2",
+            buttonsStyling: !1
+        }).then(function(t) {
+            t.value ? window.location.href = link : t.dismiss === Swal.DismissReason.cancel &&
+                Swal.fire({
+                    title: "Cancelled",
+                    text: "Your imaginary file is safe :)",
+                    icon: "error"
+                })
+        })
+    });
+</script>
+//delete script end
   </body>
 </html>
