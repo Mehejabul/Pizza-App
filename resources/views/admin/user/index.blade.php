@@ -8,7 +8,7 @@
                     <div class="card">
                         <div class="card-header">
                             <div class="d-flex mb-2">
-                                <h3 class="me-auto">Total 50 User</h3>
+                                <h3 class="me-auto">Total {{ count($users) }} User</h3>
                                 <a title="Back" href="{{ route('user.create') }}" class="btn btn-sm btn-secondary">
                                     <span data-feather="plus"></span>
                                 </a>

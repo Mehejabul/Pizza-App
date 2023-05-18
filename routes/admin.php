@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\UserController;
 
 
@@ -22,5 +23,13 @@ Route::group(['prefix' => 'dashboard','middleware' => ['auth']], function(){
          //user status
          Route::get('/status/{slug}','status')->name('user.status');
     });
+
+    //socialmediaController
+    Route::prefix('setting')->group(function(){
+         Route::prefix('socialmedia')->controller(SettingController::class)->group(function(){
+               Route::get('/', 'sm_index')->name('sm.index');
+               Route::put('/update', 'sm_update')->name('sm.update');
+             });
+      });
 
 });
