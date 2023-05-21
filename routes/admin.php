@@ -36,6 +36,12 @@ Route::group(['prefix' => 'dashboard','middleware' => ['auth']], function(){
               Route::get('/' , 'basic_index')->name('basic.index');
               Route::put('/' , 'basic_update')->name('basic.update');
          });
+       //ContactSettingController
+       Route::prefix('contactinfo')->controller(SettingController::class)->group(function(){
+            Route::get('/', 'cont_index')->name('cont.index');
+            Route::put('/update', 'count_update')->name('cont.update');
+       });
+
       });
 
 });

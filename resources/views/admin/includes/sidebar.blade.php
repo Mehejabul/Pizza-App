@@ -58,6 +58,13 @@
                                   </div>
                               </a>
                           </li>
+                          <li class="nav-item">
+                              <a class="nav-link" href="{{ route('cont.index') }}" data-bs-toggle="" aria-expanded="false">
+                                  <div class="d-flex align-items-center">
+                                      <span class="nav-link-text">SocialInfo</span>
+                                  </div>
+                              </a>
+                          </li>
                       </ul>
                       <ul class="nav collapse parent show" id="dashboard"></ul>
                       <div class="navbar-vertical-footer">

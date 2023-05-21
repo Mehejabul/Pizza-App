@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\BasicSetting;
+use App\Models\ContactInfo;
 use App\Models\SocialMedia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -16,11 +17,8 @@ class SettingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function sm_index()
-    {
-        $socialmedia = SocialMedia::first();
-         return view('admin.setting.social.index', compact('socialmedia'));
-    }
+
+//basic setting start
 
    public function basic_index()
    {
@@ -90,53 +88,49 @@ class SettingController extends Controller
     );
     return redirect()->back()->with($notification);
 
-
    }
-    public function create()
+
+   //contactinformation setting start
+
+   public function cont_index()
+   {
+    $continfo = ContactInfo::first();
+    return view('admin.setting.contact.index', compact('continfo'));
+   }
+
+   public function count_update(Request $request)
+   {
+       $continfo = ContactInfo::where('cont_id',1)->update([
+        'cont_phone1' => $request->cont_phone1,
+        'cont_phone2' => $request->cont_phone2,
+        'cont_phone3' => $request->cont_phone3,
+        'cont_phone4' => $request->cont_phone4,
+        'cont_email1' => $request->cont_email1,
+        'cont_email2' => $request->cont_email2,
+        'cont_email3' => $request->cont_email3,
+        'cont_email4' => $request->cont_email4,
+        'cont_address1' => $request->cont_address1,
+        'cont_address2' => $request->cont_address2,
+        'cont_address3' => $request->cont_address3,
+        'cont_address4' => $request->cont_address4,
+       ]);
+       $notification = array(
+          'message' => 'updated successfuly',
+          'alert-type' => 'success',
+       );
+       return redirect()->back()->with($notification);
+   }
+
+
+   //Social media setting start
+
+    public function sm_index()
     {
-        //
+        $socialmedia = SocialMedia::first();
+        return view('admin.setting.social.index', compact('socialmedia'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function sm_update(Request $request)
     {
         $socialmediaupdate = SocialMedia::where('sm_id', 1)->update([
@@ -154,14 +148,4 @@ class SettingController extends Controller
         return redirect()->back()->with($notification);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }
