@@ -44,14 +44,15 @@
                           </div>
                       </a>
                       <ul class="nav collapse parent" id="customization">
-                          <li class="nav-item"><a class="nav-link" href="{{ route('sm.index') }}" data-bs-toggle="" aria-expanded="false">
+                          <li class="nav-item">
+                              <a class="nav-link" href="{{ route('sm.index') }}" data-bs-toggle="" aria-expanded="false">
                                   <div class="d-flex align-items-center">
                                       <span class="nav-link-text">SocialSetting</span>
                                   </div>
                               </a>
                           </li>
                           <li class="nav-item">
-                              <a class="nav-link" href="#" data-bs-toggle="" aria-expanded="false">
+                              <a class="nav-link" href="{{ route('basic.index') }}" data-bs-toggle="" aria-expanded="false">
                                   <div class="d-flex align-items-center">
                                       <span class="nav-link-text">BasicSetting</span>
                                   </div>

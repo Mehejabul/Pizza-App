@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\BasicSetting;
 use App\Models\SocialMedia;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -17,6 +18,10 @@ class SetupSeeder extends Seeder
     {
         SocialMedia::create([
             'sm_facebook' => 'https://www.facebook.com/',
+        ]);
+
+        BasicSetting::create([
+            'bs_company' => "Pizzaro",
         ]);
     }
 }

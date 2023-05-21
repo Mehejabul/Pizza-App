@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\BasicSetting;
 use App\Models\SocialMedia;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Image;
 
 class SettingController extends Controller
 {
@@ -19,11 +22,76 @@ class SettingController extends Controller
          return view('admin.setting.social.index', compact('socialmedia'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   public function basic_index()
+   {
+
+    $basicsetting = BasicSetting::first();
+    return view('admin.setting.basic.index',compact('basicsetting'));
+
+   }
+
+   public function basic_update(Request $request){
+
+        //logo
+        if ($request->hasFile('bs_logo')) {
+            if (File::exists($request->old_bs_logo)) {
+                File::delete($request->bold_bs_logos);
+            }
+
+            $image = $request->file('bs_logo');
+            $imageName = hexdec(uniqid()). '.' . $image->getClientOriginalExtension();
+            Image::make($image)->save('media/setting/' . $imageName);
+            $bs_logo = 'media/setting/'. $imageName;
+        }else{
+            $bs_logo = $request->old_bs_logo;
+        }
+
+
+        //bs_favicon
+        if($request->hasFile('bs_fabicon')){
+            if(File::exists($request->old_bs_fabicon)){
+                File::delete($request->old_bs_fabicon);
+            }
+            $image = $request->file('bs_fabicon');
+            $ImageName = hexdec(uniqid()). '.' . $image->getClientOriginalExtension();
+            Image::make($image)->save('media/setting/'. $ImageName);
+            $bs_fabicon = 'media/setting/' . $ImageName;
+        }else{
+            $bs_fabicon = $request->old_bs_fabicon;
+        }
+
+
+        //bs_footer_logo
+        if ($request->hasFile('bs_flogo')) {
+            if (File::exists($request->old_bs_flogo)) {
+                File::delete($request->old_bs_flogo);
+            }
+            $image = $request->file('bs_flogo');
+            $ImageName = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
+            Image::make($image)->save('media/setting/' . $ImageName);
+            $bs_flogo = 'media/setting/' . $ImageName;
+        } else {
+            $bs_flogo = $request->old_bs_flogo;
+        }
+
+
+    $basicsetting = BasicSetting::where('bs_id', 1)->update([
+      'bs_company' => $request->bs_company,
+      'bs_url' => $request->bs_url,
+      'bs_title' => $request->bs_title,
+      'bs_logo' => $bs_logo,
+      'bs_flogo' => $bs_flogo,
+      'bs_fabicon' => $bs_fabicon,
+    ]);
+
+    $notification = array(
+     'message' => "successfully updated",
+     'alert-type' => 'success',
+    );
+    return redirect()->back()->with($notification);
+
+
+   }
     public function create()
     {
         //

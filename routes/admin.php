@@ -24,12 +24,18 @@ Route::group(['prefix' => 'dashboard','middleware' => ['auth']], function(){
          Route::get('/status/{slug}','status')->name('user.status');
     });
 
-    //socialmediaController
+    //settingController
     Route::prefix('setting')->group(function(){
+        //socialsettingcontroller
          Route::prefix('socialmedia')->controller(SettingController::class)->group(function(){
                Route::get('/', 'sm_index')->name('sm.index');
                Route::put('/update', 'sm_update')->name('sm.update');
              });
+        //BasicSettingcontroller
+         Route::prefix('basic')->controller(SettingController::class)->group(function(){
+              Route::get('/' , 'basic_index')->name('basic.index');
+              Route::put('/' , 'basic_update')->name('basic.update');
+         });
       });
 
 });
