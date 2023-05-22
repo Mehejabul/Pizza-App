@@ -79,4 +79,27 @@
             </div>
             <!-- .col-full -->
          </footer>
+
+
+
+ <!-- all js include start -->
+     {{--  sweetAlert  --}}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+    @if(Session::has('success'))
+    Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: "{{ session('success') }}",
+        showConfirmButton: false,
+        timer: 1500
+    })
+    @elseif(Session::has('error'))
+    Swal.fire({
+    icon: 'error',
+    title: 'Oops...',
+    text: 'Something went wrong!',
+})
+@endif
+</script>
          <!-- #colophon -->

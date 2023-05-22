@@ -31,6 +31,8 @@ Route::group(['prefix' => 'dashboard','middleware' => ['auth']], function(){
 
 //websitcontroller
 Route::get('/',[WebsiteController::class,'index'])->name('website.index');
+Route::get('/contact',[WebsiteController::class, 'contact'])->name('website.contact');
+Route::post('/contact/submit',[WebsiteController::class, 'contact_submit'])->name('website.contact.submit');
 
 require __DIR__.'/auth.php';
 require __DIR__.'/admin.php';

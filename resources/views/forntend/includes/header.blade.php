@@ -16,7 +16,7 @@
                         <ul id="menu-main-menu" class="menu nav-menu" aria-expanded="false">
                            <li class="menu-item"><a href="#">My Account</a></li>
                            <li class="menu-item"><a href="#">Track Order</a></li>
-                           <li class="menu-item"><a href="#">Contact</a></li>
+                           <li class="menu-item"><a href="{{ route('website.contact') }}">Contact</a></li>
                         </ul>
                      </div>
                      <div class="handheld-navigation">
