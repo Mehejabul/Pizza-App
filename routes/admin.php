@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\PizzaCrustController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\UserController;
 
@@ -43,5 +44,21 @@ Route::group(['prefix' => 'dashboard','middleware' => ['auth']], function(){
        });
 
       });
+
+      //PizzacurstController
+     Route::prefix('pizzacrust')->controller(PizzaCrustController::class)->group(function(){
+         Route::get('/', 'index')->name('crust.index');
+         Route::get('/create', 'create')->name('crust.create');
+         Route::post('/', 'store')->name('crust.store');
+         Route::get('/edit/{slug}', 'store')->name('crust.edit');
+         Route::put('/{slug}', 'update')->name('crust.update');
+         Route::get('/delete/{slug}', 'destroy')->name('crust.destroy');
+         //publish and status
+         Route::get('/publish/{slug}', 'publish')->name('crust.publish');
+         Route::get('/status/{slug}', 'status')->name('crust.status');
+     });
+
+
+
 
 });

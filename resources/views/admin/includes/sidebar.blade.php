@@ -22,6 +22,17 @@
                               <span class="nav-link-text">users</span>
                           </div>
                       </a>
+
+                       <a class="nav-link" href="{{ route('crust.index') }}">
+                          <div class="d-flex align-items-center">
+                              <div class="dropdown-indicator-icon d-flex flex-center"></div>
+                              <span class="nav-link-icon">
+                                  <span data-feather="food"></span>
+                              </span>
+                              <span class="nav-link-text">pizzacrust</span>
+                          </div>
+                      </a>
+
                       <a class="nav-link" href="{{ route('website.index') }}">
                           <div class="d-flex align-items-center">
                               <div class="dropdown-indicator-icon d-flex flex-center"></div>
@@ -31,6 +42,7 @@
                               <span class="nav-link-text">website</span>
                           </div>
                       </a>
+
                       <a class="nav-link dropdown-indicator" href="#customization" role="button"
                           data-bs-toggle="collapse" aria-expanded="false" aria-controls="customization">
                           <div class="d-flex align-items-center">
