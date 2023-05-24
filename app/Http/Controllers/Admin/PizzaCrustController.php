@@ -26,7 +26,7 @@ class PizzaCrustController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.crust.create');
     }
 
     /**

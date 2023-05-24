@@ -10,6 +10,7 @@
                             <div class="d-flex mb-2">
                                 <h3 class="me-auto">Total {{ count($crusts) }} User</h3>
                                 <a title="" href="{{ route('crust.create') }}" class="btn btn-sm btn-secondary">
+
                                     <span class="text-primary" data-feather="plus"></span>
                                 </a>
                             </div>
