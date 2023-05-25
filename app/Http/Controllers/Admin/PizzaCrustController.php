@@ -134,8 +134,14 @@ class PizzaCrustController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($slug)
     {
-        //
+        $destroy = PizzaCrust::where('pcrust_slug', $slug)->first();
+        $destroy->delete();
+        $notification = array(
+            'message' => 'successfully delete pizzaCrust',
+            'alert-type' => 'success',
+        );
+        return redirect()->route('crust.index')->with($notification);
     }
 }

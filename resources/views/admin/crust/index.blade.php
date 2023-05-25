@@ -65,7 +65,7 @@
                                                                 <span data-feather="edit"></span>Edit
                                                             </a>
                                                             <a id="delete" class="dropdown-item"
-                                                                href="{{ route('user.delete', $crust->pcrust_slug) }}">
+                                                                href="{{ route('crust.destroy', $crust->pcrust_slug) }}">
                                                                 <span data-feather="trash"></span>Delete
                                                             </a>
                                                             <div class="dropdown-divider"></div>
