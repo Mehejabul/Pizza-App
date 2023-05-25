@@ -33,6 +33,16 @@
                           </div>
                       </a>
 
+                        <a class="nav-link" href="{{ route('size.index') }}">
+                          <div class="d-flex align-items-center">
+                              <div class="dropdown-indicator-icon d-flex flex-center"></div>
+                              <span class="nav-link-icon">
+                                  <span data-feather="food"></span>
+                              </span>
+                              <span class="nav-link-text">PizzaSize</span>
+                          </div>
+                      </a>
+
                       <a class="nav-link" href="{{ route('website.index') }}">
                           <div class="d-flex align-items-center">
                               <div class="dropdown-indicator-icon d-flex flex-center"></div>

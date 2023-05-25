@@ -5,8 +5,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\PizzaCrustController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\UserController;
-
-
+use App\Http\Controllers\PizzaSizeController;
 
 //admin route
 Route::group(['prefix' => 'dashboard','middleware' => ['auth']], function(){
@@ -56,6 +55,20 @@ Route::group(['prefix' => 'dashboard','middleware' => ['auth']], function(){
          //publish and status
          Route::get('/publish/{slug}', 'publish')->name('crust.publish');
          Route::get('/status/{slug}', 'status')->name('crust.status');
+     });
+
+     //pizza size controller
+     Route::prefix('pizzasize')->controller(PizzaSizeController::class)->group(function(){
+         Route::get('/', 'index')->name('size.index');
+         Route::get('/create', 'create')->name('size.create');
+         Route::post('/store', 'store')->name('size.store');
+         Route::get('/edit/{slug}', 'edit')->name('size.edit');
+         Route::put('/{slug}', 'update')->name('size.update');
+         Route::get('/delete/{slug}', 'destroy')->name('size.destroy');
+         //size status and publish
+         Route::get('/status/{slug}', 'status')->name('size.status');
+         Route::get('/publish/{slug}', 'publish')->name('size.publish');
+
      });
 
 
