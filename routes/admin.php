@@ -50,7 +50,7 @@ Route::group(['prefix' => 'dashboard','middleware' => ['auth']], function(){
          Route::get('/', 'index')->name('crust.index');
          Route::get('/create', 'create')->name('crust.create');
          Route::post('/', 'store')->name('crust.store');
-         Route::get('/edit/{slug}', 'store')->name('crust.edit');
+         Route::get('/edit/{slug}', 'edit')->name('crust.edit');
          Route::put('/{slug}', 'update')->name('crust.update');
          Route::get('/delete/{slug}', 'destroy')->name('crust.destroy');
          //publish and status
